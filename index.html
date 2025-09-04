@@ -3,81 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <title>StarAdmin CRM</title>
   <link rel="stylesheet" href="style.css">
-  <title>Dash-Board</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
-  <ul class="topnav">
-    <li><a class="active" href="#home">Contact</a></li>
-    <li><a href="#news">Lead</a></li>
-    <li><a href="#contact">Account</a></li>
-    <li><a href="#contact">More</a></li>
-    <li class="right"><a class="active" href="#about"> &CirclePlus; New </a></li>
-    <li class="right"><a href="#about"> 🖨️ Print</a></li>
-    <li class="right"><a href="#about"> 📤 Share</a></li> 
-  </ul>
-  <br>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-star"></i>
+        <h1>StarAdmin</h1>
+      </div>
 
-  <div class="leftsection">
-    <h3>Revenue Analytics </h3>
-    <canvas id="myChart1" style="width:100%;max-width:500px"></canvas>
-  </div>  
+      <div class="sidebar-menu">
+        <div class="menu-title">Dashboard</div>
+        <div class="menu-item active">
+          <i class="fas fa-chart-line"></i>
+          <span>Default</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-users"></i>
+          <span>CRM</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-palette"></i>
+          <span>Purple</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-moon"></i>
+          <span>Purple Dark</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Sale</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-user-tie"></i>
+          <span>HR</span>
+        </div>
+      </div>
 
-  <div class="rightsection">
-    <h3>Sales Analytics</h3>
-    <canvas id="myChart2" style="width:100%;max-width:300px"></canvas>
+      <div class="sidebar-menu">
+        <div class="menu-title">Contact</div>
+        <div class="menu-item">
+          <i class="fas fa-user-plus"></i>
+          <span>Lead</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-user-circle"></i>
+          <span>Account</span>
+        </div>
+        <div class="menu-item">
+          <i class="fas fa-ellipsis-h"></i>
+          <span>More</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header">
+        <div class="welcome">
+          <h2>Good Morning, <span style="color: black;">John Doe</span></h2>
+          <p>Your performance summary this week</p>
+        </div>
+
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="user-profile">
+          <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="User Profile">
+          <span>John Doe</span>
+        </div>
+      </div>
+
+      <!-- Sales Overview -->
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Number of sales</h3>
+            <i class="fas fa-ellipsis-v card-option"></i>
+          </div>
+          <div class="sales-grid">
+            <div class="sales-card">
+              <i class="fas fa-dollar-sign"></i>
+              <p class="sales-title">Sales Revenue</p>
+              <h3 class="sales-value">$4.31</h3>
+            </div>
+            <div class="sales-card">
+              <i class="fas fa-cube"></i>
+              <p class="sales-title">Total Products</p>
+              <h3 class="sales-value">$24.403</h3>
+            </div>
+            <div class="sales-card">
+              <i class="fas fa-tag"></i>
+              <p class="sales-title">Average Price</p>
+              <h3 class="sales-value">$4.234</h3>
+            </div>
+            <div class="sales-card">
+              <i class="fas fa-chart-pie"></i>
+              <p class="sales-title">Total Turnover</p>
+              <h3 class="sales-value">$4.732</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Section -->
+      <div class="analytics-grid">
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3 class="card-title">Revenue Analytics</h3>
+            <div class="chart-tabs">
+              <div class="tab active">This month</div>
+              <div class="tab inactive">Last quarter</div>
+            </div>
+          </div>
+          <div class="chart-placeholder">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3 class="card-title">Sales Analytics</h3>
+            <div class="chart-tabs">
+              <div class="tab active">This month</div>
+            </div>
+          </div>
+          <div class="chart-placeholder">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Sections -->
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">ORDERS</h3>
+            <i class="fas fa-ellipsis-v card-option"></i>
+          </div>
+          <ul class="performance-list">
+            <li>Revenue Orders</li>
+            <li>Payments</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">CRM</h3>
+            <i class="fas fa-ellipsis-v card-option"></i>
+          </div>
+          <ul class="performance-list">
+            <li>Users</li>
+            <li>Customer Profile</li>
+            <li>Resources</li>
+            <li>Management</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sales Trend</h3>
+            <i class="fas fa-ellipsis-v card-option"></i>
+          </div>
+          <ul class="performance-list">
+            <li>Online Payment</li>
+            <li>Offline Sales</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Top Performers -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Top Performers</h3>
+          <i class="fas fa-ellipsis-v card-option"></i>
+        </div>
+        <div class="performance-list">
+          <div class="performance-item">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Isabella Becker">
+            <div class="performance-info">
+              <h4>Isabella Becker</h4>
+              <p>isabellabecker@gmail.com</p>
+            </div>
+          </div>
+          <div class="performance-item">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Joshi">
+            <div class="performance-info">
+              <h4>Alex Joshi</h4>
+              <p>alex00123@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
-    var xValues1 = ["Mon", "Tue", "Wed", "Thur", "Fri" , "Sat" ,"Sun"];
-    var yValues1 = [380, 500, 150, 400, 580 ,350, 250];
-    var barColors1 = ["blue", "blue","blue","blue","blue" ,"blue" ,"blue"];
+    // Simple script to handle menu item clicks
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', function () {
+        document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
 
-    new Chart("myChart1", {
-      type: "bar",
+    // Handle tab clicks
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function () {
+        if (this.parentElement.classList.contains('chart-tabs')) {
+          this.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+
+    // Revenue Chart (Bar Chart)
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    const revenueChart = new Chart(revenueCtx, {
+      type: 'bar',
       data: {
-        labels: xValues1,
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         datasets: [{
-          backgroundColor: barColors1,
-          data: yValues1
+          label: 'Revenue ($)',
+          data: [380, 500, 100, 400, 580, 370, 350],
+          backgroundColor: '#0D47A1',
+          borderColor: '#0D47A1',
+          borderWidth: 1
         }]
       },
       options: {
-        legend: {display: false},
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        legend: {
+          display: false
+        },
         title: {
           display: true,
-          text: "This Month "
+          text: 'Weekly Revenue'
         }
       }
     });
 
-new Chart("myChart2", {
-  type: "doughnut",
-  data: {
-    labels: ["Branch 1 (30%)", "Branch 2(40%)", "Branch 3(30%)"],
-    datasets: [{
-      backgroundColor: ["#b91d47","#00aba9","#2b5797"],
-      data: [30, 40, 30]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "This Month"
-    },
-    legend: {
-      display: true,
-      position: "right", 
-      labels: {
-        boxWidth: 20,
-        padding: 15
+    // Sales Chart (Doughnut Chart) - FIXED
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(salesCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ["Branch 1", "Branch 2", "Branch 3"],
+        datasets: [{
+          data: [30, 40, 30],
+          backgroundColor: ['#0D47A1', '#6abce2', '#036c5f'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          position: 'bottom'
+        },
+        title: {
+          display: true,
+          text: 'Sales by Branch'
+        }
       }
-    }
-  }
-});
-
+    });
   </script>
 </body>
 </html>
