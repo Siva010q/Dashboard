@@ -1,89 +1,80 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color:gainsboro ;
 }
 
-h2, p {
-  text-align: center;
-  font-size: 30px;
-}
-
-ul {
+ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: darkblue;
+  background-color: gainsboro;
 }
 
-ul li {
-  float:left;
+ul.topnav li {
+  float: left;
+  border-right: solid 1px #c4bebe;
+  border-bottom: solid 1px #c4bebe;
 }
 
-ul li a {
-  max-width: max-content;
+ul.topnav li a {
   display: block;
-  color: white;
+  color: #000;
   text-align: center;
   padding: 14px 16px;
-  margin: 10px;
   text-decoration: none;
 }
 
-ul li a:hover {
-  background-color: blue;
-  color: yellow;
+ul.topnav li a:hover:not(.active) {
+  color: blue;
 }
-ul .search {
+
+ul.topnav li a.active {
+  color: blue;
+}
+
+ul.topnav li.right {
   float: right;
-  margin: 12px 16px;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
 }
 
-
-.main {
-  display: flex;
-  justify-content: center;  
-  align-items: center;      
-  margin: 40px;
-  border: solid 5px green;
-  border-radius: 15px;
-  padding: 40px;
-  width: auto;
-  height: 250px;
-  background-color: lightgreen;
+@media screen and (max-width: 600px) {
+  ul.topnav li.right,
+  ul.topnav li {
+    float: none;
+  }
 }
 
-table ,tr , th ,td {
-  border: solid 2px  black;
+.leftsection {
+    text-align: space-between;
+    display: block;
+    float: left;
+    margin: 20px;
+    padding: 10px;
+    border: solid 1px gray;
+    border-radius: 10px;
+    width: 45%;
+    height: 350px;
+    background-color: lightgrey; 
+}
+.rightsection {
+    display: block;
+    float: right;
+    padding: 10px;
+    margin: 20px;
+    border: solid 1px gray;
+    border-radius: 10px;
+    width: 45%;
+    height: 350px;
+    background-color: lightgrey; 
 }
 
-table{
-  width: 700px;
-  height: 300px;
-  padding: 10px;
-  border-collapse: collapse;
-  text-align: center;
+.leftsection h3{
+    color: #000;
+    font-weight: 500;
 }
-
-th {
-  background-color: rgb(152, 144, 144);
-  width: 100px;
-  height: 70px;
-  border-radius: 5px;
-}
-tr {
-  background-color: #ccc;
-  width: 100px;
-  height: 20%;
-  border-radius: 5px;
-
-}
-td {
-  width: 100px;
-  height: 20%;
-  border-radius: 5px;
-
+.rightsection h3{
+    color: #000;
+    font-weight: 500;
 }

@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Dash Board </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Dash-Board</title>
 </head>
 <body>
-    
-    <h2>CRM Dash-board</h2>
+  <ul class="topnav">
+    <li><a class="active" href="#home">Contact</a></li>
+    <li><a href="#news">Lead</a></li>
+    <li><a href="#contact">Account</a></li>
+    <li><a href="#contact">More</a></li>
+    <li class="right"><a class="active" href="#about"> &CirclePlus; New </a></li>
+    <li class="right"><a href="#about"> 🖨️ Print</a></li>
+    <li class="right"><a href="#about"> 📤 Share</a></li> 
+  </ul>
+  <br>
 
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Customers</a><li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Support</a></li>
-        <li class="search"><input type="text" placeholder="Search contents🔍"></li>    
-    </ul>
+  <div class="leftsection">
+    <h3>Revenue Analytics </h3>
+    <canvas id="myChart1" style="width:100%;max-width:500px"></canvas>
+  </div>  
 
-    <div class="main">
-        <table>
-            <tr>
-                <th>Customer</th>
-                <th>Customer ID </th>
-                <th>Order Date </th>
-                <th>Orders </th>
-                <th>Order Value </th>
-                <th>Completed </th>
-                <th>Pending </th>
-            </tr>
-            <tr>
-                <td>Richard</td>
-                <td>5ft014gji</td>
-                <td>12.04.2018</td>
-                <td>05</td>
-                <td>$30</td>
-                <td>3</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>Andriew</td>
-                <td>tgji0145f</td>
-                <td>22.03.2018</td>
-                <td>10</td>
-                <td>$60</td>
-                <td>6</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>Michale</td>
-                <td>01ftg45ji</td>
-                <td>12.04.2018</td>
-                <td>07</td>
-                <td>$51</td>
-                <td>4</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>Antony</td>
-                <td>01ji45ftg</td>
-                <td>19.05.2018</td>
-                <td>09</td>
-                <td>$57</td>
-                <td>5</td>
-                <td>4</td>
-            </tr>
-        </table>
-    </div>
-    
+  <div class="rightsection">
+    <h3>Sales Analytics</h3>
+    <canvas id="myChart2" style="width:100%;max-width:300px"></canvas>
+  </div>
+
+  <script>
+    var xValues1 = ["Mon", "Tue", "Wed", "Thur", "Fri" , "Sat" ,"Sun"];
+    var yValues1 = [380, 500, 150, 400, 580 ,350, 250];
+    var barColors1 = ["blue", "blue","blue","blue","blue" ,"blue" ,"blue"];
+
+    new Chart("myChart1", {
+      type: "bar",
+      data: {
+        labels: xValues1,
+        datasets: [{
+          backgroundColor: barColors1,
+          data: yValues1
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "This Month "
+        }
+      }
+    });
+
+new Chart("myChart2", {
+  type: "doughnut",
+  data: {
+    labels: ["Branch 1 (30%)", "Branch 2(40%)", "Branch 3(30%)"],
+    datasets: [{
+      backgroundColor: ["#b91d47","#00aba9","#2b5797"],
+      data: [30, 40, 30]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "This Month"
+    },
+    legend: {
+      display: true,
+      position: "right", 
+      labels: {
+        boxWidth: 20,
+        padding: 15
+      }
+    }
+  }
+});
+
+  </script>
 </body>
 </html>
